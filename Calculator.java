@@ -21,12 +21,9 @@ public class Calculator {
       System.out.println("Converting to postfix...");
       // converts input to postfix
       String[] splitExpression = getProcessedInput(exp);
-      // postfix expression without commas
       System.out.println("Equation::> " + getReadablePostfix(splitExpression));
-      // prints out result of postfix calculation
       System.out.println("Evaluating... " + "\nResult: " + calculatePostfix(splitExpression));
     } else {
-      // error message
       System.out.println("The input you enter was malformed. Exiting....");
     }
   }
@@ -40,7 +37,6 @@ public class Calculator {
 
     // op for operator or operand
     for (String op : exp) {
-      // append to postfix if operand
       if (isOperand(op)) {
         postfix.append(op).append(" ");
       }
@@ -77,9 +73,7 @@ public class Calculator {
 
   public static double calculatePostfix(String[] splitExp) {
     Stack<String> numStack = new Stack<>();
-    // iterates through each operand/operator
     for (String op : splitExp) {
-      // pushes numbers to stack
       if (isOperand(op)) {
         numStack.push(op);
       }
